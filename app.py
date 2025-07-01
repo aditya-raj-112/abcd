@@ -5,7 +5,7 @@ def greet_user():
     name = input("Enter your name: ")
     
     # Greet the user
-    print(f"Hello, {name}! Welcome to Python programming.")
+    print(f"Hello, {name}! Welcome to java programming.")
 
 # Run the function
 if __name__ == "__main__":
