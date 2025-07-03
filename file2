@@ -1,0 +1,17 @@
+# Simple Python Program Example
+
+# Print a greeting message
+print("Hello, World!")
+
+# Take user input
+name = input("Enter your name: ")
+print(f"Welcome, {name}!")
+
+# Perform a simple calculation
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+# Calculate the sum
+sum_result = num1 + num2
+print(f"The sum of {num1} and {num2} is {sum_result}")
+
