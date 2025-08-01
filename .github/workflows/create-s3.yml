@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: terraform10  # ✅ Correct key
+        working-directory: Terraform10  # ✅ Correct key
 
     steps:
       - uses: actions/checkout@v4
