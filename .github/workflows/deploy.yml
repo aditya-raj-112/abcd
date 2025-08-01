@@ -21,7 +21,7 @@ jobs:
 
     - name: 🧱 Build WAR using Maven
       run: mvn clean package
-      working-directory: my-webapp
+      working-directory:./my-webapp 
 
     - name: 🚀 Copy WAR to EC2 via SCP
       uses: appleboy/scp-action@v0.1.4
