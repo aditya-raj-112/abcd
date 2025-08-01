@@ -3,7 +3,7 @@ name: Build and Deploy WAR to EC2
 on:
   push:
     branches:
-      - main  # or any branch you use
+      - main  # Change to your branch if different
 
 jobs:
   build-and-deploy:
@@ -17,12 +17,12 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '17'  # Adjust if you use a different JDK
 
     - name: 🧱 Build WAR using Maven
       run: mvn clean package
 
-    - name: 🚀 Copy WAR to EC2 (via SCP)
+    - name: 🚀 Copy WAR to EC2 via SCP
       uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ secrets.EC2_HOST }}
@@ -31,15 +31,14 @@ jobs:
         source: target/my-webapp.war
         target: /opt/tomcat/webapps/
 
-    - name: 🔁 Restart Tomcat on EC2
+    - name: 🔁 Restart Tomcat on EC2 via SSH
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          echo "Stopping Tomcat..."
+          echo "Restarting Tomcat..."
           /opt/tomcat/bin/shutdown.sh || true
           sleep 5
-          echo "Starting Tomcat..."
           /opt/tomcat/bin/startup.sh
