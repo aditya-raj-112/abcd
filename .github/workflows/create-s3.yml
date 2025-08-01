@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        cd: terraform10
+        working-directory: terraform10  # ✅ Correct key
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Init
